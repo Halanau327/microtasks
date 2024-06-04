@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
-import styles from "./components/Site.module.css";
+import React from 'react';
+import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
+import {Error404} from "./components/pages/Error404";
 import {Adidas} from "./components/pages/Adidas";
 import {Puma} from "./components/pages/Puma";
 import {Abibas} from "./components/pages/Abibas";
-import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
-import {Error404} from "./components/pages/Error404";
-import styled from 'styled-components';
-import {S} from './components/pages/_styles'
+import styles from "./components/Site.module.css";
+import {S} from './components/pages/_styles';
 import {Model} from "./components/pages/Model";
 
 
@@ -14,7 +13,7 @@ const PATH = {
     PAGE1: '/adidas',
     PAGE2: '/puma',
     PAGE3: '/abibas',
-} as const
+} as const;
 
 function App() {
     return (
@@ -37,11 +36,7 @@ function App() {
                         <Route path={'/adidas/:id'} element={<Model/>}/>
 
                         <Route path={'/*'} element={<Error404/>}/>
-
-                        {/*<Route path={'/page/error'} element={<Error404/>}/>*/}
-                        {/*<Route path={'/*'} element={<Navigate to={'/page/error'}/>}/>*/}
                     </Routes>
-
                 </div>
             </div>
             <div className={styles.footer}>abibas 2023</div>
@@ -50,6 +45,4 @@ function App() {
 }
 
 export default App;
-
-
 
