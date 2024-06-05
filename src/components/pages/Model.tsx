@@ -1,13 +1,23 @@
-import {adidasArr} from "./Adidas";
+import {adidasArr, AdidasItem} from "./Adidas";
+import {pumaArr, PumaItem} from "./Puma";
 import {useParams} from "react-router-dom";
 import {Error404} from "./Error404";
 
+type CrossModels = {
+    [key: string] : (AdidasItem[] | PumaItem[])
+}
+
+const CrossModels: CrossModels = {
+    adidas: adidasArr,
+    puma: pumaArr,
+}
 
 export const Model = () => {
-    const params = useParams()
-    const id = Number(params.id)
 
-    const currentModel = adidasArr.find(el => el.id === id)
+    const {model1, id} = useParams<{model1: string, id: string}>()
+    console.log(model1)
+
+    const currentModel = model1 ? CrossModels[model1].find(el => el.id === Number(id)) : null
 
     return (
 
@@ -15,11 +25,12 @@ export const Model = () => {
          <div style={{display:'flex', flexDirection: 'column', textAlign: 'center', marginBottom: '15px'}}>
 
              {currentModel ? <>
-             <h2>{currentModel.model}</h2>
-                 <span style={{marginBottom: '15px'}}>{currentModel.collection}</span>
-                 <span style={{marginBottom: '15px'}}>{currentModel.price}</span>
 
-                 <img src={currentModel.picture} alt={currentModel.model} style={{width:"600px", height: 'auto', marginLeft: "auto", marginRight: 'auto', marginTop: '0', marginBottom: '0' }}/>
+             <h2>{currentModel?.model}</h2>
+                 <span style={{marginBottom: '15px'}}>{currentModel?.collection}</span>
+                 <span style={{marginBottom: '15px'}}>{currentModel?.price}</span>
+
+                 <img src={currentModel?.picture} alt={currentModel?.model} style={{width:"600px", height: 'auto', marginLeft: "auto", marginRight: 'auto', marginTop: '0', marginBottom: '0' }}/>
 
 
              </> : <Error404/>}

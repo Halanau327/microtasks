@@ -40,15 +40,17 @@ export const pumaArr: PumaItem[] = [
 export const Puma = () => {
     return (
         <div>
-            <h2>PUMA</h2>
+            <h2 style={{textAlign: 'center'}}>PUMA</h2>
             <div style={{display: 'flex', justifyContent: 'center'}}>
                 {pumaArr.map((puma) => (
                     <Link key={puma.id} to={`/puma/${puma.id}`}>
-                        <img src={puma.picture} alt={puma.model}/>
+                        <img src={puma.picture}
+                             alt={puma.model}
+                             style={{width: '200px', height: 'auto', marginRight: '10px'}}
+                        />
                     </Link>
                 ))}
             </div>
-
             <p>
                 What is Lorem Ipsum?
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard

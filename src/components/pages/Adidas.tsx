@@ -48,16 +48,13 @@ export const Adidas = () => {
             <div style={{display: 'flex', justifyContent: 'center'}}>
                 {adidasArr.map((adidas, index) => (
                     // <Link key={adidas.id} to={`/adidas/${index}`}>
-                        <Link key={adidas.id} to={`/adidas/${adidas.id}`}>
+                    <Link key={adidas.id} to={`/adidas/${adidas.id}`}>
                         <img src={adidas.picture}
                              alt={adidas.model}
                              style={{width: '200px', height: 'auto', marginRight: '10px'}}
                         />
                     </Link>
                 ))}
-            </div>
-            <div className={styles.content}>
-
             </div>
             <p>
                 What is Lorem Ipsum?
