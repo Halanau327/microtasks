@@ -3,7 +3,6 @@ import {useParams} from "react-router-dom";
 import {pumaArr, PumaItem} from "./Puma";
 
 
-
 type CrossModels= {
     [key: string]: (AdidasItem[] | PumaItem[]);
 }
