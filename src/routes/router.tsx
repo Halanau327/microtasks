@@ -25,6 +25,10 @@ const PATH = {
 
 const publicRoutes: RouteObject[] = [
     {
+        index: true,
+        element: <Navigate to={"/adidas"}/>
+    },
+    {
         path: PATH.ADIDAS,
         element: <Adidas/>,
         errorElement: <Error404/>,
@@ -54,6 +58,7 @@ const publicRoutes: RouteObject[] = [
         element: <Login/>
     },
 ]
+
 const privateRoutes: RouteObject[] = [
     {
         path: "/protectedPage",

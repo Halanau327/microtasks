@@ -1,5 +1,5 @@
 import styles from "./components/Site.module.css";
-import {NavLink, Outlet} from 'react-router-dom';
+import {Link, NavLink, Outlet, useNavigate} from 'react-router-dom';
 import {S} from './components/pages/_styles';
 
 const PATH = {
@@ -11,6 +11,11 @@ const PATH = {
 } as const
 
 function App() {
+    const navigate = useNavigate()
+    const navigateHandler = () => {
+        navigate(-1)
+    }
+
     return (
         <div>
             <div className={styles.header}><h1>HEADER</h1></div>
@@ -23,6 +28,13 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.PAGE5}>Protected Page</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
+                    <div className={styles.HorizontalNavigation}>
+                        <Link className={styles.LinkLikeButton} to={"/adidas"}>main</Link>
+                        {/*<Link className={styles.LinkLikeButton} onClick={navigateHandler}>back</Link>*/}
+                        <button onClick={navigateHandler} className={styles.LinkLikeButton}>back</button>
+
+                    </div>
+
                     <Outlet/>
                 </div>
             </div>
